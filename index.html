@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BaFood | Delicious, Practical & Better Food Choices (Gluten-Free & No Preservatives)</title>
+  <meta name="description" content="BaFood - Produsen makanan beku (frozen food) berbahan dasar ayam berkualitas tinggi di Tasikmalaya. 100% Gluten-Free dan No Preservatives. Praktis, lezat, dan sehat untuk keluarga.">
+
+  <!-- Google Fonts Poppins & Adobe Typekit Fallbacks -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/oze6gqa.css">
+
+  <!-- Main Pure CSS Stylesheet (Cloned from Boldly Foods Architecture) -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-wrapper">
+
+    <!-- ====================================================================
+         1. SITE HEADER & NAVIGATION
+         - Sticky header dengan posisi fixed top
+         - Logo resmi BaFood (logo.png)
+         - Link drop-tab animasi untuk desktop
+         - Tombol titik minimalis untuk drawer menu mobile
+         ==================================================================== -->
+    <header class="site-header" id="siteHeader">
+      <!-- Brand Logo Resmi BaFood -->
+      <a href="#hero" class="header-brand" aria-label="BaFood Home">
+        <img src="logo.png" alt="BaFood Official Logo" loading="eager">
+        <div class="header-brand-text">
+          <span class="header-brand-title">BaFood</span>
+          <span class="header-brand-sub">Gluten-Free & No Preservatives</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav dengan Animasi Sliding Drop-Tab -->
+      <nav class="desktop-nav" aria-label="Navigasi Utama">
+        <a href="#hero" class="nav-link" data-text="Home">Home</a>
+        <a href="#about" class="nav-link" data-text="Tentang Kami">Tentang Kami</a>
+        <a href="#products" class="nav-link" data-text="Katalog Produk">Katalog Produk</a>
+        <a href="#keunggulan" class="nav-link" data-text="Keunggulan">Keunggulan</a>
+        <a href="#order" class="nav-link" data-text="Cara Pesan">Cara Pesan</a>
+        <a href="#contact" class="nav-link" data-text="Kontak">Kontak</a>
+      </nav>
+
+      <!-- Mobile Menu Trigger (Minimal Dot) -->
+      <button type="button" class="menu-trigger" aria-label="Buka navigasi menu">
+        <span class="menu-trigger__dot"></span>
+      </button>
+    </header>
+
+    <!-- Mobile Fullscreen Drawer Overlay -->
+    <div class="mobile-drawer" id="mobileDrawer">
+      <ul class="mobile-nav-list">
+        <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+        <li><a href="#about" class="mobile-nav-link">Tentang Kami</a></li>
+        <li><a href="#products" class="mobile-nav-link">Katalog Produk</a></li>
+        <li><a href="#keunggulan" class="mobile-nav-link">Keunggulan</a></li>
+        <li><a href="#order" class="mobile-nav-link">Cara Pesan</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Kontak & Lokasi</a></li>
+      </ul>
+      <div class="mobile-drawer__footer">
+        <p><strong>BaFood Tasikmalaya</strong> — "Delicious, Practical & Better Food Choices"</p>
+        <p style="margin-top: 0.6rem; color: var(--color-accent);">WhatsApp: 085777038202 | Instagram: @bafood_official</p>
+      </div>
+    </div>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main>
+
+      <!-- ==================================================================
+           2. HERO SECTION
+           - Fullscreen card dengan rounded 2.4rem
+           - Dynamic Food Carousel (Nugget Ayam, Ayam Keju, Pangsit Ayam)
+           - Keunggulan Badges (Gluten-Free, No Preservatives, Practical)
+           - 3D Spring Hover Pill Buttons (Jelajahi Produk & Pesan WhatsApp)
+           ================================================================== -->
+      <section class="hero-section site-gutter" id="hero">
+        <div class="hero-card site-max">
+          <!-- Background Carousel Track -->
+          <div class="carousel-track">
+            <!-- Slide 1: Nugget Ayam Crispy -->
+            <figure class="carousel-slide">
+              <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=1600&auto=format&fit=crop&q=80" alt="BaFood Nugget Ayam Gluten Free Renyah" loading="eager">
+            </figure>
+            <!-- Slide 2: Ayam Keju Savory Melt -->
+            <figure class="carousel-slide">
+              <img src="https://images.unsplash.com/photo-1549611016-3a70d82b5040?w=1600&auto=format&fit=crop&q=80" alt="BaFood Ayam Keju Lumer Lezat" loading="lazy">
+            </figure>
+            <!-- Slide 3: Pangsit Ayam Gurih -->
+            <figure class="carousel-slide">
+              <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=1600&auto=format&fit=crop&q=80" alt="BaFood Pangsit Ayam Praktis Gurih" loading="lazy">
+            </figure>
+          </div>
+
+          <!-- Dark Warm Gradient Overlay -->
+          <div class="hero-gradient"></div>
+
+          <!-- Hero Content Block -->
+          <div class="hero-content">
+            <!-- 3 Keunggulan Utama Badges -->
+            <div class="hero-badges">
+              <span class="hero-badge-item">✓ Gluten-Free</span>
+              <span class="hero-badge-item">✓ No Preservatives</span>
+              <span class="hero-badge-item">✓ Practical & Delicious</span>
+            </div>
+
+            <h1 class="h1-mega">Nikmati<br>Kelezatan<br>Praktis!</h1>
+            <p class="body-large">Pilihan frozen food gluten-free dan tanpa bahan pengawet untuk menemani kebutuhan makanan praktis sehari-hari bersama BaFood.</p>
+            
+            <div class="hero-cta-group">
+              <a href="#products" class="btn-main">
+                <span class="btn-main__content">Jelajahi Produk</span>
+              </a>
+              <a href="https://wa.me/6285777038202?text=Halo%20BaFood,%20saya%20tertarik%20untuk%20memesan%20produk.%20Boleh%20minta%20informasi%20lebih%20lanjut%3F" target="_blank" rel="noopener noreferrer" class="btn-main btn-main--gold">
+                <span class="btn-main__content">Pesan Sekarang</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Carousel Desktop Dots Indicator -->
+          <div class="carousel-pagination" aria-label="Navigasi Slide">
+            <button type="button" class="carousel-dot is-active" data-slide="0" aria-label="Slide 1"></button>
+            <button type="button" class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
+            <button type="button" class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
+          </div>
+
+          <!-- Carousel Mobile Progress Bar -->
+          <div class="carousel-progress">
+            <div class="carousel-progress__bar"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           3. PRODUCT CATALOG SECTION ("Temukan Favoritmu di BaFood!")
+           - Filter kategori dinamis (Semua, Olahan Nugget & Keju, Pangsit)
+           - Responsive CSS Grid
+           - Detail lengkap: Foto, Nama, Berat, Harga, Tombol Pesan WhatsApp
+           ================================================================== -->
+      <section class="products-section site-gutter" id="products">
+        <div class="site-max">
+          <!-- Products Header & Filter Buttons -->
+          <div class="products-header">
+            <div>
+              <h2 class="h2-large" style="color: var(--color-cream);">Temukan Favoritmu di BaFood!</h2>
+              <p class="body-regular" style="color: rgba(255, 247, 237, 0.85); margin-top: 0.8rem;">
+                Katalog frozen food olahan ayam pilihan, 100% Gluten-Free dan No Preservatives. Higienis, bergizi, dan siap saji kapan saja.
+              </p>
+            </div>
+            <div class="products-filter">
+              <button type="button" class="filter-btn is-active" data-filter="all">Semua Produk</button>
+              <button type="button" class="filter-btn" data-filter="nugget">Olahan Nugget & Keju</button>
+              <button type="button" class="filter-btn" data-filter="pangsit">Dimsum & Pangsit</button>
+            </div>
+          </div>
+
+          <!-- Product Cards Grid -->
+          <div class="products-grid">
+
+            <!-- Card 1: NUGGET AYAM -->
+            <article class="product-card" data-category="nugget">
+              <div class="product-badge-wrap">
+                <span class="product-badge">Best Seller</span>
+                <span class="product-weight">250 gram</span>
+              </div>
+              <div class="product-image-wrap">
+                <img src="https://images.unsplash.com/photo-1562967914-608f82629710?w=800&auto=format&fit=crop&q=80" alt="BaFood Nugget Ayam Gluten-Free" loading="lazy">
+              </div>
+              <div class="product-info">
+                <h3>NUGGET AYAM</h3>
+                <div class="product-price">Rp30.000</div>
+                <p>Nugget ayam renyah di luar, empuk dan gurih alami di dalam. 100% bebas gluten tanpa pengawet sintesis, kaya protein dan aman dinikmati keluarga tercinta.</p>
+              </div>
+              <div class="product-footer">
+                <span class="product-tag">Gluten-Free</span>
+                <a href="https://wa.me/6285777038202?text=Halo%20BaFood,%20saya%20mau%20pesan%20NUGGET%20AYAM%20(250g%20-%20Rp30.000).%20Boleh%20dibantu%20prosesnya%3F" target="_blank" rel="noopener noreferrer" class="product-btn-order">
+                  Pesan Sekarang &rarr;
+                </a>
+              </div>
+            </article>
+
+            <!-- Card 2: AYAM KEJU -->
+            <article class="product-card" data-category="nugget">
+              <div class="product-badge-wrap">
+                <span class="product-badge">Favorite Cheese</span>
+                <span class="product-weight">250 gram</span>
+              </div>
+              <div class="product-image-wrap">
+                <img src="https://images.unsplash.com/photo-1549611016-3a70d82b5040?w=800&auto=format&fit=crop&q=80" alt="BaFood Ayam Keju Gluten-Free" loading="lazy">
+              </div>
+              <div class="product-info">
+                <h3>AYAM KEJU</h3>
+                <div class="product-price">Rp40.000</div>
+                <p>Daging ayam giling premium berpadu lelehan keju gurih di setiap gigitan. Camilan beku sehat tanpa gluten yang disukai anak-anak hingga dewasa.</p>
+              </div>
+              <div class="product-footer">
+                <span class="product-tag">Melted Cheese</span>
+                <a href="https://wa.me/6285777038202?text=Halo%20BaFood,%20saya%20mau%20pesan%20AYAM%20KEJU%20(250g%20-%20Rp40.000).%20Boleh%20dibantu%20prosesnya%3F" target="_blank" rel="noopener noreferrer" class="product-btn-order">
+                  Pesan Sekarang &rarr;
+                </a>
+              </div>
+            </article>
+
+            <!-- Card 3: PANGSIT AYAM -->
+            <article class="product-card" data-category="pangsit">
+              <div class="product-badge-wrap">
+                <span class="product-badge">Savory & Crispy</span>
+                <span class="product-weight">250 gram</span>
+              </div>
+              <div class="product-image-wrap">
+                <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=800&auto=format&fit=crop&q=80" alt="BaFood Pangsit Ayam Praktis" loading="lazy">
+              </div>
+              <div class="product-info">
+                <h3>PANGSIT AYAM</h3>
+                <div class="product-price">Rp30.000</div>
+                <p>Pangsit isi olahan ayam berpadu rempah alami dengan kulit tipis lembut. Sangat lezat digoreng krispi maupun direbus menjadi kuah hangat yang nikmat.</p>
+              </div>
+              <div class="product-footer">
+                <span class="product-tag">Goreng / Kuah</span>
+                <a href="https://wa.me/6285777038202?text=Halo%20BaFood,%20saya%20mau%20pesan%20PANGSIT%20AYAM%20(250g%20-%20Rp30.000).%20Boleh%20dibantu%20prosesnya%3F" target="_blank" rel="noopener noreferrer" class="product-btn-order">
+                  Pesan Sekarang &rarr;
+                </a>
+              </div>
+            </article>
+
+            <!-- Card 4: PAKET BUNDLE HEMAT 3-IN-1 -->
+            <article class="product-card" data-category="all">
+              <div class="product-badge-wrap">
+                <span class="product-badge" style="background-color: var(--color-accent); color: var(--color-primary-dark);">Paket Komplit</span>
+                <span class="product-weight">750 gram (3 Pack)</span>
+              </div>
+              <div class="product-image-wrap">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&auto=format&fit=crop&q=80" alt="BaFood Paket Bundle Lengkap Hemat" loading="lazy">
+              </div>
+              <div class="product-info">
+                <h3>PAKET KOMPLIT BAFOOD</h3>
+                <div class="product-price">
+                  <span>Rp95.000</span>
+                  <span style="font-size: 1.4rem; color: #8C7B75; text-decoration: line-through; font-weight: 500;">Rp100.000</span>
+                </div>
+                <p>Paket komplit 1 Nugget Ayam + 1 Ayam Keju + 1 Pangsit Ayam. Stok praktis kulkas untuk persediaan sarapan dan bekal bergizi keluarga selama seminggu.</p>
+              </div>
+              <div class="product-footer">
+                <span class="product-tag">Hemat Rp5.000</span>
+                <a href="https://wa.me/6285777038202?text=Halo%20BaFood,%20saya%20mau%20pesan%20PAKET%20KOMPLIT%20BAFOOD%20(3%20Pack%20-%20Rp95.000).%20Boleh%20dibantu%20prosesnya%3F" target="_blank" rel="noopener noreferrer" class="product-btn-order">
+                  Pesan Sekarang &rarr;
+                </a>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           4. WHY CHOOSE BAFOOD? (5 Keunggulan Utama)
+           - Gluten-Free, No Preservatives, Practical, Quality, Delicious
+           ================================================================== -->
+      <section class="why-section site-gutter" id="keunggulan">
+        <div class="why-card site-max">
+          <div class="why-header">
+            <h2 class="h2-large">Mengapa Memilih BaFood?</h2>
+            <p>Kami mendedikasikan setiap proses produksi untuk menghadirkan makanan beku berbahan dasar ayam yang tidak hanya lezat, tetapi juga aman, higienis, dan menyehatkan bagi seluruh keluarga.</p>
+          </div>
+
+          <div class="why-grid">
+            <!-- Item 1 -->
+            <div class="why-item">
+              <div class="why-icon">🌾</div>
+              <h3>Gluten-Free</h3>
+              <p>Produk tanpa kandungan gluten, aman untuk pencernaan sensitif dan gaya hidup lebih baik.</p>
+            </div>
+            <!-- Item 2 -->
+            <div class="why-item">
+              <div class="why-icon">🌿</div>
+              <h3>No Preservatives</h3>
+              <p>Tanpa tambahan bahan pengawet sintetis dan pewarna berbahaya. 100% bahan alami.</p>
+            </div>
+            <!-- Item 3 -->
+            <div class="why-item">
+              <div class="why-icon">⏱️</div>
+              <h3>Practical</h3>
+              <p>Mudah disimpan di freezer dan siap saji kapan saja hanya dalam beberapa menit.</p>
+            </div>
+            <!-- Item 4 -->
+            <div class="why-item">
+              <div class="why-icon">🍗</div>
+              <h3>Quality</h3>
+              <p>Mengutamakan daging ayam segar pilihan berkualitas tinggi dengan standar kebersihan ketat.</p>
+            </div>
+            <!-- Item 5 -->
+            <div class="why-item">
+              <div class="why-icon">✨</div>
+              <h3>Delicious</h3>
+              <p>Menghadirkan cita rasa gurih alami yang lezat, memanjakan lidah anak-anak hingga dewasa.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           5. EDITORIAL ABOUT SECTION ("Kenali BaFood Lebih Dekat")
+           - Full bleed visual canvas
+           - Kisah, Visi, Misi, & Nilai Brand
+           - 3D Spring Button Hubungi WhatsApp
+           ================================================================== -->
+      <section class="editorial-section site-gutter" id="about">
+        <div class="editorial-card site-max">
+          <div class="editorial-media">
+            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1600&auto=format&fit=crop&q=80" alt="Dapur higienis BaFood Kota Tasikmalaya" loading="lazy">
+          </div>
+          <div class="editorial-overlay"></div>
+          <div class="editorial-content">
+            <span class="editorial-tag">Tentang Kami • Est. 2024</span>
+            <h2 class="h1-mega">Kenali BaFood<br>Lebih Dekat</h2>
+            <p>
+              BaFood merupakan brand kuliner yang berdiri sejak tahun 2024 di Kota Tasikmalaya dan bergerak di bidang produksi serta penjualan berbagai makanan beku berbahan dasar ayam. BaFood hadir untuk memberikan pilihan makanan praktis dengan tetap memperhatikan kualitas bahan baku, cita rasa, dan kebutuhan konsumen.
+              <br><br>
+              Dengan menghadirkan produk <strong>gluten-free</strong> dan <strong>tanpa bahan pengawet</strong>, BaFood berkomitmen menyediakan pilihan makanan yang praktis, lezat, dan berkualitas bagi keluarga modern Indonesia.
+            </p>
+            <a href="https://wa.me/6285777038202?text=Halo%20BaFood,%20saya%20ingin%20tahu%20lebih%20banyak%20tentang%20produk%20dan%20kemitraan%20BaFood." target="_blank" rel="noopener noreferrer" class="btn-main">
+              <span class="btn-main__content">Hubungi Kami di WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           6. HOW TO ORDER & DIRECT INQUIRY FORM
+           - 5 Langkah Pemesanan Sederhana
+           - Direct WhatsApp Order Integration Form
+           ================================================================== -->
+      <section class="order-section site-gutter" id="order">
+        <div class="order-card site-max">
+          <div class="order-layout">
+            <!-- Left: 5 Langkah Pemesanan -->
+            <div class="order-intro">
+              <h2 class="h2-large">Pesan Produk BaFood dengan Mudah!</h2>
+              <p>Nikmati kemudahan memesan stok frozen food favorit Anda langsung dari dapur BaFood Tasikmalaya dalam 5 langkah sederhana:</p>
+
+              <ol class="order-steps">
+                <li class="order-step-item">
+                  <div class="step-num">1</div>
+                  <div class="step-text">
+                    <h4>Pilih Produk yang Diinginkan</h4>
+                    <p>Tentukan varian Nugget Ayam, Ayam Keju, Pangsit Ayam, atau Paket Komplit sesuai selera Anda.</p>
+                  </div>
+                </li>
+                <li class="order-step-item">
+                  <div class="step-num">2</div>
+                  <div class="step-text">
+                    <h4>Klik Tombol WhatsApp</h4>
+                    <p>Gunakan tombol pemesanan atau isi formulir di samping untuk langsung tersambung ke WhatsApp admin resmi.</p>
+                  </div>
+                </li>
+                <li class="order-step-item">
+                  <div class="step-num">3</div>
+                  <div class="step-text">
+                    <h4>Kirim Pesan Detail Pesanan</h4>
+                    <p>Sampaikan jumlah paket serta alamat tujuan pengiriman di Tasikmalaya maupun luar kota.</p>
+                  </div>
+                </li>
+                <li class="order-step-item">
+                  <div class="step-num">4</div>
+                  <div class="step-text">
+                    <h4>Konfirmasi & Pembayaran</h4>
+                    <p>Admin kami akan mengonfirmasi ketersediaan stok, ongkos kirim, dan instruksi pembayaran transfer.</p>
+                  </div>
+                </li>
+                <li class="order-step-item">
+                  <div class="step-num">5</div>
+                  <div class="step-text">
+                    <h4>Pesanan Diproses & Dikirim</h4>
+                    <p>Makanan beku dikemas higienis dengan ice pack dan dikirim aman sampai ke depan pintu rumah Anda.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <!-- Right: Direct WhatsApp Order Form -->
+            <div>
+              <form class="bafood-form" id="orderForm">
+                <div style="grid-column: span 2; margin-bottom: -1rem;">
+                  <h3 style="font-size: 2.2rem; font-weight: 800; color: var(--color-primary-dark);">Formulir Pemesanan Cepat</h3>
+                  <p style="font-size: 1.45rem; color: var(--color-text-muted);">Isi data singkat berikut untuk langsung generate pesanan ke WhatsApp BaFood.</p>
+                </div>
+
+                <div class="form-group col-half">
+                  <input type="text" id="name" class="form-input" placeholder="Nama Lengkap Anda *" required>
+                </div>
+                <div class="form-group col-half">
+                  <input type="tel" id="phone" class="form-input" placeholder="Nomor WhatsApp Aktif *" required>
+                </div>
+
+                <div class="form-group">
+                  <select id="productChoice" class="form-select" required aria-label="Pilih Produk">
+                    <option value="" disabled selected>Pilih Produk yang Ingin Dipesan *</option>
+                    <option value="Nugget Ayam (250g - Rp30.000)">Nugget Ayam (250g) - Rp30.000</option>
+                    <option value="Ayam Keju (250g - Rp40.000)">Ayam Keju (250g) - Rp40.000</option>
+                    <option value="Pangsit Ayam (250g - Rp30.000)">Pangsit Ayam (250g) - Rp30.000</option>
+                    <option value="Paket Komplit Bundle (3 Pack - Rp95.000)">Paket Komplit Bundle (3 Pack) - Rp95.000</option>
+                    <option value="Kombinasi / Pemesanan Jumlah Banyak">Pemesanan Jumlah Banyak / Kemitraan Reseller</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <input type="text" id="address" class="form-input" placeholder="Alamat Pengiriman / Kota (cth: Dadaha, Tasikmalaya)">
+                </div>
+
+                <div class="form-actions">
+                  <button type="submit" class="btn-main btn-main--primary">
+                    <span class="btn-main__content">Kirim ke WhatsApp &rarr;</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================================================================
+           7. CONTACT US & LOCATION CARDS ("Hubungi dan Kunjungi BaFood")
+           - WhatsApp: 085777038202
+           - Instagram: @bafood_official
+           - Lokasi: Jl. Dadaha, Kota Tasikmalaya (Google Maps)
+           - Jam Operasional: 09.00 - 17.00 WIB
+           ================================================================== -->
+      <section class="contact-section site-gutter" id="contact">
+        <div class="site-max">
+          <div style="text-align: center; margin-bottom: 4rem; color: var(--color-cream);">
+            <h2 class="h2-large">Hubungi dan Kunjungi BaFood</h2>
+            <p class="body-regular" style="color: rgba(255, 247, 237, 0.85); margin-top: 0.8rem;">
+              Kami siap melayani kebutuhan frozen food lezat, sehat, dan berkualitas untuk Anda.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <!-- Card 1: WhatsApp -->
+            <div class="contact-card">
+              <div>
+                <div class="contact-card-icon">💬</div>
+                <h3>Layanan WhatsApp</h3>
+                <p>Konsultasi menu, pemesanan cepat, konfirmasi pembayaran, dan informasi promo terbaru.</p>
+                <p style="font-weight: 700; font-size: 1.8rem; color: var(--color-primary); margin-bottom: 2rem;">0857-7703-8202</p>
+              </div>
+              <a href="https://wa.me/6285777038202?text=Halo%20BaFood,%20saya%20tertarik%20untuk%20memesan%20produk.%20Boleh%20minta%20informasi%20lebih%20lanjut%3F" target="_blank" rel="noopener noreferrer" class="btn-contact">
+                Chat WhatsApp
+              </a>
+            </div>
+
+            <!-- Card 2: Instagram -->
+            <div class="contact-card">
+              <div>
+                <div class="contact-card-icon">📸</div>
+                <h3>Instagram Resmi</h3>
+                <p>Ikuti update harian, testimoni pelanggan, video cara penyajian, dan konten menarik dari BaFood.</p>
+                <p style="font-weight: 700; font-size: 1.8rem; color: var(--color-primary); margin-bottom: 2rem;">@bafood_official</p>
+              </div>
+              <a href="https://www.instagram.com/bafood_official" target="_blank" rel="noopener noreferrer" class="btn-contact">
+                Kunjungi Instagram
+              </a>
+            </div>
+
+            <!-- Card 3: Lokasi & Jam Buka -->
+            <div class="contact-card">
+              <div>
+                <div class="contact-card-icon">📍</div>
+                <h3>Lokasi & Jam Buka</h3>
+                <p>Jl. Dadaha, Kota Tasikmalaya<br><strong>Jam Operasional:</strong> 09.00 – 17.00 WIB</p>
+                <p style="font-size: 1.4rem; color: var(--color-text-muted); margin-bottom: 2rem;">Tersedia pengiriman area Tasikmalaya dan sekitarnya.</p>
+              </div>
+              <a href="https://share.google/hTvqrlwnXEeb7GEJ7" target="_blank" rel="noopener noreferrer" class="btn-contact">
+                Buka di Google Maps
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ====================================================================
+         8. MEGA FOOTER (Deep Red #800000 Background)
+         - Logo BaFood resmi
+         - Tagline: "Delicious, Practical & Better Food Choices"
+         - 4 Kolom Navigasi & Info Kontak
+         - Copyright: © 2026 BaFood
+         ==================================================================== -->
+    <footer class="site-footer site-gutter">
+      <div class="site-max">
+        <div class="footer-top">
+          <!-- BaFood Brand Identity Box -->
+          <div class="footer-brand-box">
+            <div class="footer-logo-wrap">
+              <img src="logo.png" alt="BaFood Logo Footer" loading="lazy">
+              <span class="footer-brand-title">BaFood</span>
+            </div>
+            <p class="footer-tagline">"Delicious, Practical & Better Food Choices"</p>
+            <p class="footer-brand-desc">
+              Bisnis kuliner makanan beku (frozen food) berbahan dasar ayam asal Tasikmalaya yang berkomitmen menghadirkan produk berkualitas tinggi, 100% Gluten-Free, dan No Preservatives sejak tahun 2024.
+            </p>
+          </div>
+
+          <!-- 4 Navigation & Info Columns -->
+          <div class="footer-nav-grid">
+            <div>
+              <p class="footer-col-title">Navigasi</p>
+              <ul class="footer-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#products">Katalog Produk</a></li>
+                <li><a href="#keunggulan">5 Keunggulan</a></li>
+                <li><a href="#order">Panduan Pemesanan</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <p class="footer-col-title">Produk Pilihan</p>
+              <ul class="footer-links">
+                <li><a href="#products">Nugget Ayam (250g)</a></li>
+                <li><a href="#products">Ayam Keju (250g)</a></li>
+                <li><a href="#products">Pangsit Ayam (250g)</a></li>
+                <li><a href="#products">Paket Komplit Hemat</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <p class="footer-col-title">Hubungi Kami</p>
+              <ul class="footer-links">
+                <li><a href="https://wa.me/6285777038202" target="_blank" rel="noopener noreferrer">WhatsApp: 0857-7703-8202</a></li>
+                <li><a href="https://www.instagram.com/bafood_official" target="_blank" rel="noopener noreferrer">Instagram: @bafood_official</a></li>
+                <li><a href="https://share.google/hTvqrlwnXEeb7GEJ7" target="_blank" rel="noopener noreferrer">Google Maps Lokasi</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <p class="footer-col-title">Informasi Usaha</p>
+              <div class="footer-info-text">
+                <p><strong>Lokasi:</strong><br>Jl. Dadaha, Kota Tasikmalaya</p>
+                <p style="margin-top: 1rem;"><strong>Jam Operasional:</strong><br>09.00 – 17.00 WIB</p>
+                <p style="margin-top: 1rem; color: var(--color-accent); font-weight: 600;">Gluten-Free & Tanpa Pengawet</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative Watermark Vector -->
+        <svg class="footer-watermark" viewBox="0 0 543 543" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path opacity="0.3" d="M543 0V502.51H359.264V418.306C359.264 390.207 370.387 363.26 390.207 343.34L468.428 264.725C475.841 257.273 475.826 245.237 468.405 237.801L468.057 237.453C460.613 230.001 448.562 230.016 441.134 237.484L342.361 336.757C322.441 356.776 295.494 368 267.395 368H183.191V543H0V0H543Z" fill="#F2B84B"/>
+        </svg>
+
+        <!-- Copyright Notice -->
+        <div class="footer-bottom">
+          <p>© 2026 BaFood. All Rights Reserved.</p>
+          <p>Delicious, Practical & Better Food Choices • Kota Tasikmalaya</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Interactive Toast Notification -->
+    <div class="toast-notice" id="toastNotice" role="alert" aria-live="polite"></div>
+
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="main.js"></script>
+</body>
+</html>

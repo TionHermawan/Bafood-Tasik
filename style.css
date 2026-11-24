@@ -1,0 +1,1393 @@
+/* ==========================================================================
+   BAFOOD - DESIGN SYSTEM & STYLESHEET (BASED ON BOLDLY FOODS ARCHITECTURE)
+   100% Pure CSS (No Frameworks) - Semantic Flexbox & Grid
+   Brand: BaFood (Delicious, Practical & Better Food Choices)
+   Color Palette: #AC0000 (Red), #800000 (Deep Red), #FFF7ED (Cream), #F2B84B (Gold), #382B27 (Dark Brown)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Custom Properties (BaFood Official Brand Tokens)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand Color Palette */
+  --color-primary: #AC0000;          /* BaFood Signature Red */
+  --color-primary-dark: #800000;     /* Deep Red (Footer & Accents) */
+  --color-primary-light: #C92A2A;    /* Light red for subtle hovers */
+  --color-accent: #F2B84B;           /* Golden Yellow (3D button depth & highlights) */
+  --color-cream: #FFF7ED;            /* Warm Cream (Section & Card background) */
+  --color-cream-light: #FFFFFF;      /* Pure White (Card surfaces & inputs) */
+  --color-cream-dark: #EADBC8;       /* Subtle cream shadow */
+  --color-text: #382B27;             /* Dark Brown (Headline & Body text) */
+  --color-text-muted: #6E5D57;       /* Muted brown for descriptions */
+  --color-white: #FFFFFF;
+  --color-black: #1A1412;
+
+  /* Typography */
+  --font-display: "Poppins", "neue-haas-grotesk-display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Poppins", "neue-haas-grotesk-display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Spacing Scale */
+  --gutter-sm: 1.6rem;
+  --gutter-md: 3.2rem;
+  --gutter-lg: 4.8rem;
+  --radius-lg: 2.4rem;
+  --radius-pill: 3rem;
+
+  /* Animation Timings */
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.25s var(--ease-smooth);
+  --transition-normal: 0.4s var(--ease-smooth);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & Base Setup
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.6rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-primary); /* BaFood Red Canvas */
+  overflow-x: hidden;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, textarea, select {
+  font: inherit;
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   3. Container & Layout Utilities
+   -------------------------------------------------------------------------- */
+.site-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-primary);
+}
+
+.site-gutter {
+  padding-left: var(--gutter-sm);
+  padding-right: var(--gutter-sm);
+}
+
+@media (min-width: 768px) {
+  .site-gutter {
+    padding-left: var(--gutter-md);
+    padding-right: var(--gutter-md);
+  }
+}
+
+.site-max {
+  width: 100%;
+  max-width: 144rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --------------------------------------------------------------------------
+   4. Typography Utilities
+   -------------------------------------------------------------------------- */
+.h1-mega {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(4.4rem, 9.5vw, 11.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.h2-large {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3.2rem, 6.5vw, 7.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.h3-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 3.5vw, 3.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.body-large {
+  font-size: clamp(1.6rem, 2vw, 2.2rem);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.body-regular {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   5. Interactive Button (Signature 3D Spring Hover Pill)
+   -------------------------------------------------------------------------- */
+.btn-main {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  max-width: 27rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  text-decoration: none;
+  background-color: transparent;
+  user-select: none;
+}
+
+/* The recessed 3D backing shadow (Golden Yellow or Deep Red) */
+.btn-main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+  z-index: 1;
+  transition: transform var(--transition-fast);
+}
+
+.btn-main--primary::after {
+  background-color: var(--color-primary-dark);
+}
+
+.btn-main--cream::after {
+  background-color: var(--color-accent);
+}
+
+/* The upper interactive pill element */
+.btn-main__content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 5.4rem;
+  padding: 0 2.4rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-cream);
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: -0.01em;
+  transition: transform 0.3s var(--ease-spring), background-color var(--transition-fast);
+}
+
+.btn-main--primary .btn-main__content {
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+}
+
+.btn-main--gold .btn-main__content {
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+}
+
+/* Interactive Spring Hover: pops upwards, exposing bottom bevel */
+.btn-main:hover .btn-main__content {
+  transform: translateY(-0.8rem);
+}
+
+.btn-main:active .btn-main__content {
+  transform: translateY(-0.2rem);
+}
+
+/* --------------------------------------------------------------------------
+   6. Header & Navigation Bar
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 7.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--gutter-sm);
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+  z-index: 100;
+  transition: background-color var(--transition-normal), height var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+@media (min-width: 768px) {
+  .site-header {
+    height: 8.8rem;
+    padding: 0 var(--gutter-md);
+  }
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.25);
+}
+
+/* Brand Logo Container */
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.header-brand img {
+  height: 4.8rem;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .header-brand img {
+    height: 6rem;
+  }
+}
+
+.header-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-brand-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-cream);
+  letter-spacing: -0.02em;
+}
+
+.header-brand-sub {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.header-brand:hover {
+  transform: scale(1.02);
+}
+
+/* Desktop Navigation Menu */
+.desktop-nav {
+  display: none;
+  align-items: center;
+  height: 100%;
+}
+
+@media (min-width: 1024px) {
+  .desktop-nav {
+    display: flex;
+  }
+}
+
+/* Signature Drop-Tab Hover Effect on Nav Links */
+.nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin-left: 3.6rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-cream);
+  letter-spacing: -0.01em;
+  transition: color var(--transition-fast);
+  padding: 0 0.8rem;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1.6rem;
+  background-color: var(--color-accent);
+  border-radius: 0 0 0.8rem 0.8rem;
+  transform: translateY(-100%);
+  transition: transform 0.35s cubic-bezier(0.73, 0, 0.33, 1.46);
+  pointer-events: none;
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+  transform: translateY(-20%);
+}
+
+.nav-link:hover {
+  color: var(--color-white);
+}
+
+/* Mobile Trigger (Minimal Dot) */
+.menu-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  background: transparent;
+  cursor: pointer;
+  z-index: 120;
+}
+
+@media (min-width: 1024px) {
+  .menu-trigger {
+    display: none;
+  }
+}
+
+.menu-trigger__dot {
+  position: relative;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.menu-trigger.is-active .menu-trigger__dot {
+  transform: scale(0.75);
+  background-color: var(--color-cream);
+}
+
+/* Fullscreen Mobile Drawer */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-primary-dark);
+  color: var(--color-cream);
+  z-index: 110;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10rem var(--gutter-sm) 4rem var(--gutter-sm);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-100%);
+  transition: opacity 0.4s var(--ease-smooth), transform 0.4s var(--ease-smooth), visibility 0.4s;
+}
+
+.mobile-drawer.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mobile-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.mobile-nav-link {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--color-cream);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.mobile-nav-link:hover {
+  color: var(--color-accent);
+  transform: translateX(1rem);
+}
+
+.mobile-drawer__footer {
+  font-size: 1.4rem;
+  opacity: 0.85;
+  border-top: 1px solid rgba(255, 247, 237, 0.2);
+  padding-top: 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   7. Hero Carousel Section
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 8.8rem;
+  padding-bottom: 2rem;
+  display: flex;
+  align-items: stretch;
+}
+
+.hero-card {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 3.2rem 2.4rem;
+  background-color: #1a1a1a;
+}
+
+@media (min-width: 768px) {
+  .hero-card {
+    padding: 6rem 4.8rem;
+  }
+}
+
+.carousel-track {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transition: transform 0.7s var(--ease-smooth);
+}
+
+.carousel-slide {
+  position: relative;
+  width: 33.333%;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(128, 0, 0, 0.25) 0%,
+    rgba(56, 43, 39, 0.45) 45%,
+    rgba(20, 10, 8, 0.88) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 65rem;
+  color: var(--color-white);
+}
+
+/* Hero Badge Tags (3 Keunggulan Utama) */
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-badge-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-pill);
+  background-color: rgba(242, 184, 75, 0.2);
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.hero-content .h1-mega {
+  color: var(--color-white);
+  margin-bottom: 1.6rem;
+}
+
+.hero-content .body-large {
+  color: var(--color-cream);
+  margin-bottom: 3.2rem;
+  max-width: 52rem;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  align-items: center;
+}
+
+.carousel-pagination {
+  position: absolute;
+  bottom: 3.2rem;
+  left: 0;
+  width: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+  z-index: 4;
+}
+
+@media (min-width: 1024px) {
+  .carousel-pagination {
+    display: flex;
+  }
+}
+
+.carousel-dot {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background-color: var(--color-white);
+  opacity: 0.35;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.carousel-dot.is-active {
+  opacity: 1;
+  background-color: var(--color-accent);
+  transform: scale(1.25);
+}
+
+.carousel-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.6rem;
+  background-color: rgba(255, 247, 237, 0.3);
+  z-index: 4;
+}
+
+@media (min-width: 1024px) {
+  .carousel-progress {
+    display: none;
+  }
+}
+
+.carousel-progress__bar {
+  height: 100%;
+  width: 33.333%;
+  background-color: var(--color-accent);
+  transition: transform 0.6s var(--ease-smooth);
+}
+
+/* --------------------------------------------------------------------------
+   8. Product Catalog Section (Katalog Produk BaFood)
+   -------------------------------------------------------------------------- */
+.products-section {
+  position: relative;
+  padding: 5rem 0 7rem 0;
+  background-color: var(--color-primary);
+}
+
+.products-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4rem;
+  color: var(--color-cream);
+}
+
+@media (min-width: 768px) {
+  .products-header {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.products-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .products-filter {
+    margin-top: 0;
+  }
+}
+
+.filter-btn {
+  padding: 0.8rem 2rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-cream);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-cream);
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover,
+.filter-btn.is-active {
+  background-color: var(--color-cream);
+  color: var(--color-primary-dark);
+  border-color: var(--color-cream);
+}
+
+/* Products Grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.8rem;
+}
+
+@media (min-width: 640px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
+}
+
+/* Individual Product Card */
+.product-card {
+  position: relative;
+  background-color: var(--color-cream);
+  border-radius: var(--radius-lg);
+  padding: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.product-card:hover {
+  transform: translateY(-0.8rem);
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+}
+
+.product-badge-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.6rem;
+}
+
+.product-badge {
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.4rem 1.2rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+}
+
+.product-weight {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.product-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 1.6rem;
+  background-color: #E6D7C8;
+  margin-bottom: 2rem;
+}
+
+.product-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-smooth);
+}
+
+.product-card:hover .product-image-wrap img {
+  transform: scale(1.08);
+}
+
+.product-info h3 {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.8rem;
+}
+
+.product-price {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.product-info p {
+  font-size: 1.45rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+  margin-bottom: 2rem;
+}
+
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(56, 43, 39, 0.12);
+  padding-top: 1.6rem;
+  margin-top: auto;
+}
+
+.product-tag {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.product-btn-order {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+  font-size: 1.35rem;
+  font-weight: 700;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.product-btn-order:hover {
+  background-color: var(--color-primary-dark);
+  transform: scale(1.04);
+}
+
+/* --------------------------------------------------------------------------
+   9. Why Choose BaFood (5 Keunggulan Utama)
+   -------------------------------------------------------------------------- */
+.why-section {
+  position: relative;
+  padding: 5rem 0 6rem 0;
+  background-color: var(--color-primary);
+}
+
+.why-card {
+  background-color: var(--color-cream);
+  border-radius: var(--radius-lg);
+  padding: 4.8rem 2.4rem;
+}
+
+@media (min-width: 768px) {
+  .why-card {
+    padding: 6.4rem 4.8rem;
+  }
+}
+
+.why-header {
+  text-align: center;
+  max-width: 70rem;
+  margin: 0 auto 4.8rem auto;
+}
+
+.why-header h2 {
+  color: var(--color-primary-dark);
+  margin-bottom: 1.2rem;
+}
+
+.why-header p {
+  font-size: 1.7rem;
+  color: var(--color-text-muted);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.4rem;
+}
+
+@media (min-width: 640px) {
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .why-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2rem;
+  }
+}
+
+.why-item {
+  background-color: var(--color-white);
+  border-radius: 1.8rem;
+  padding: 2.8rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(172, 0, 0, 0.08);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.why-item:hover {
+  transform: translateY(-0.6rem);
+  box-shadow: 0 1.5rem 3rem rgba(56, 43, 39, 0.1);
+}
+
+.why-icon {
+  width: 5.6rem;
+  height: 5.6rem;
+  border-radius: 50%;
+  background-color: var(--color-cream);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.6rem;
+  font-size: 2.4rem;
+}
+
+.why-item h3 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.8rem;
+}
+
+.why-item p {
+  font-size: 1.4rem;
+  line-height: 1.45;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   10. Editorial Story / About Section ("Kenali BaFood Lebih Dekat")
+   -------------------------------------------------------------------------- */
+.editorial-section {
+  position: relative;
+  min-height: 85vh;
+  padding: 3rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.editorial-card {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: 4.8rem 2.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: #121212;
+}
+
+@media (min-width: 768px) {
+  .editorial-card {
+    padding: 8rem 6rem;
+  }
+}
+
+.editorial-media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.editorial-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.editorial-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(172, 0, 0, 0.55) 0%,
+    rgba(56, 43, 39, 0.65) 50%,
+    rgba(20, 10, 8, 0.9) 100%
+  );
+  z-index: 2;
+}
+
+.editorial-content {
+  position: relative;
+  z-index: 3;
+  max-width: 70rem;
+}
+
+.editorial-tag {
+  display: inline-block;
+  padding: 0.4rem 1.4rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-accent);
+  color: var(--color-primary-dark);
+  font-weight: 800;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+}
+
+.editorial-content .h1-mega {
+  color: var(--color-cream);
+  margin-bottom: 2.4rem;
+}
+
+.editorial-content p {
+  color: var(--color-white);
+  font-size: clamp(1.6rem, 2.2vw, 2.2rem);
+  line-height: 1.6;
+  margin-bottom: 3.6rem;
+}
+
+/* --------------------------------------------------------------------------
+   11. How to Order & Quick Order Form Section
+   -------------------------------------------------------------------------- */
+.order-section {
+  position: relative;
+  padding: 4rem 0 6rem 0;
+}
+
+.order-card {
+  background-color: var(--color-cream);
+  border-radius: var(--radius-lg);
+  padding: 3.6rem 2.4rem;
+}
+
+@media (min-width: 768px) {
+  .order-card {
+    padding: 6.4rem 4.8rem;
+  }
+}
+
+.order-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+@media (min-width: 1024px) {
+  .order-layout {
+    grid-template-columns: 1.2fr 1.3fr;
+    gap: 8rem;
+  }
+}
+
+.order-intro h2 {
+  color: var(--color-primary-dark);
+  margin-bottom: 2rem;
+}
+
+.order-intro p {
+  font-size: 1.7rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  margin-bottom: 3.2rem;
+}
+
+/* 5-Step Order List */
+.order-steps {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.order-step-item {
+  display: flex;
+  gap: 1.6rem;
+  align-items: flex-start;
+}
+
+.step-num {
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.6rem;
+}
+
+.step-text h4 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.4rem;
+}
+
+.step-text p {
+  font-size: 1.45rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0;
+}
+
+/* Order / Inquiry Form */
+.bafood-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 2.4rem;
+  row-gap: 3rem;
+  background-color: var(--color-white);
+  padding: 3.2rem 2.4rem;
+  border-radius: 2rem;
+  box-shadow: 0 1rem 3rem rgba(56, 43, 39, 0.05);
+}
+
+.form-group {
+  position: relative;
+  grid-column: span 2;
+  border-bottom: 2px solid var(--color-primary-dark);
+  padding-bottom: 0.8rem;
+}
+
+@media (min-width: 640px) {
+  .form-group.col-half {
+    grid-column: span 1;
+  }
+}
+
+.form-input {
+  width: 100%;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--color-text);
+  padding: 0.8rem 0;
+}
+
+.form-input::placeholder {
+  color: #9C8E88;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.form-select {
+  width: 100%;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--color-text);
+  padding: 0.8rem 0;
+  cursor: pointer;
+}
+
+.form-group::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transition: width var(--transition-normal);
+}
+
+.form-group:focus-within::after {
+  width: 100%;
+}
+
+.form-actions {
+  grid-column: span 2;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. Contact Cards Section (Hubungi & Kunjungi BaFood)
+   -------------------------------------------------------------------------- */
+.contact-section {
+  position: relative;
+  padding: 4rem 0 6rem 0;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.4rem;
+}
+
+@media (min-width: 640px) {
+  .contact-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.contact-card {
+  background-color: var(--color-cream);
+  border-radius: var(--radius-lg);
+  padding: 3.2rem 2.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  transition: transform var(--transition-normal);
+}
+
+.contact-card:hover {
+  transform: translateY(-0.6rem);
+}
+
+.contact-card-icon {
+  font-size: 3.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.contact-card h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  margin-bottom: 0.8rem;
+}
+
+.contact-card p {
+  font-size: 1.5rem;
+  color: var(--color-text-muted);
+  margin-bottom: 2.4rem;
+}
+
+.contact-card .btn-contact {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+  font-weight: 700;
+  font-size: 1.4rem;
+  transition: background-color var(--transition-fast);
+}
+
+.contact-card .btn-contact:hover {
+  background-color: var(--color-primary-dark);
+}
+
+/* --------------------------------------------------------------------------
+   13. Mega Footer Section (Deep Red #800000)
+   -------------------------------------------------------------------------- */
+.site-footer {
+  position: relative;
+  background-color: var(--color-primary-dark); /* Deep Red Background */
+  color: var(--color-cream);
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+  overflow: hidden;
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+  margin-bottom: 6rem;
+}
+
+@media (min-width: 1024px) {
+  .footer-top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+/* Footer Brand Header with Logo */
+.footer-brand-box {
+  max-width: 45rem;
+}
+
+.footer-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.footer-logo-wrap img {
+  height: 6.4rem;
+  width: auto;
+  object-fit: contain;
+}
+
+.footer-brand-title {
+  font-family: var(--font-display);
+  font-size: 3.6rem;
+  font-weight: 800;
+  color: var(--color-cream);
+  line-height: 1;
+}
+
+.footer-tagline {
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: 1.6rem;
+}
+
+.footer-brand-desc {
+  font-size: 1.5rem;
+  line-height: 1.55;
+  color: rgba(255, 247, 237, 0.8);
+}
+
+/* Footer Link Columns */
+.footer-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.2rem 2.4rem;
+}
+
+@media (min-width: 640px) {
+  .footer-nav-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+  }
+}
+
+.footer-col-title {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 1.6rem;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.footer-links a {
+  font-size: 1.55rem;
+  color: var(--color-cream);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: var(--color-accent);
+  transform: translateX(0.4rem);
+}
+
+.footer-info-text {
+  font-size: 1.45rem;
+  line-height: 1.5;
+  color: rgba(255, 247, 237, 0.85);
+}
+
+/* Big Decorative Watermark Graphic */
+.footer-watermark {
+  position: absolute;
+  top: 0;
+  right: -5rem;
+  width: 42rem;
+  height: 42rem;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  font-size: 1.4rem;
+  color: rgba(255, 247, 237, 0.8);
+  border-top: 1px solid rgba(255, 247, 237, 0.2);
+  padding-top: 2.4rem;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.footer-bottom a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.footer-bottom a:hover {
+  color: var(--color-accent);
+}
+
+/* --------------------------------------------------------------------------
+   14. Toast Feedback Alert
+   -------------------------------------------------------------------------- */
+.toast-notice {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  padding: 1.6rem 2.4rem;
+  background-color: var(--color-text);
+  color: var(--color-cream);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.35);
+  font-weight: 600;
+  font-size: 1.5rem;
+  z-index: 999;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: transform 0.4s var(--ease-spring), opacity 0.4s var(--ease-smooth);
+}
+
+.toast-notice.is-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
